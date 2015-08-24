@@ -1,5 +1,5 @@
 {
-    "name": "zf-fagundes/zff-html2pdf",
+    "name": "fagundes/zff-html2pdf",
     "type": "library",
     "description": "A ZF2 module using html2pdf library",
     "keywords": ["html", "pdf", "html2pdf", "zf2"],
