@@ -33,10 +33,5 @@
         "classmap": [
             "./Module.php"
         ]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "4.4.x-dev"
-        }
     }
 }
