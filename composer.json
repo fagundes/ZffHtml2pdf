@@ -28,7 +28,10 @@
     {
         "psr-4":
         {
-            "Zff\\Html2Pdf": "lib"
-        }
+            "Zff\\Html2Pdf\\": "lib/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
     }
 }

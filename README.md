@@ -1,12 +1,13 @@
 # ZffHtml2Pdf
 
-Versão 0.0.1 Criado por Vinicius Fagundes.
+Versão 0.0.1  
+Criado por Vinicius Fagundes.
 
 ## Introdução
 
 ZffHtml2Pdf é um módulo do ZendFramework 2, que facilita o uso da biblioteca [spipu/html2pdf](https://github.com/spipu/html2pdf).
 
-**Note** que a biblioteca html2pdf utilizada é um [fork]((https://github.com/fagundes/html2pdf) da biblioteca [original](https://github.com/spipu/html2pdf). 
+**Note** que a biblioteca html2pdf utilizada é um [fork](https://github.com/fagundes/html2pdf) da biblioteca [original](https://github.com/spipu/html2pdf). 
 
 ## Requisitos
 
