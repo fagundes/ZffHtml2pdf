@@ -28,10 +28,14 @@
     {
         "psr-4":
         {
-            "Zff\\Html2Pdf\\": "lib/"
-        },
-        "classmap": [
-            "./Module.php"
-        ]
+            "Zff\\Html2Pdf\\": "src/"
+        }
+    },
+    "extra":
+    {
+        "alias":
+        {
+            "dev-master":"0.1.x-dev"
+        }
     }
 }

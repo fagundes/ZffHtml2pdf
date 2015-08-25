@@ -2,8 +2,8 @@
 
 namespace Zff\Html2Pdf\View\Strategy;
 
-use Html2Pdf\View\Renderer\Html2PdfRenderer;
-use Html2Pdf\View\Model\Html2PdfModel;
+use Zff\Html2Pdf\View\Renderer\Html2PdfRenderer;
+use Zff\Html2Pdf\View\Model\Html2PdfModel;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\View\ViewEvent;

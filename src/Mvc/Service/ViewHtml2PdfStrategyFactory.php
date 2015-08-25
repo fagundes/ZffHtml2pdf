@@ -2,10 +2,10 @@
 
 namespace Zff\Html2Pdf\Mvc\Service;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 use Zff\Html2Pdf\View\Strategy\Html2PdfStrategy;
 use Zff\Html2Pdf\View\Renderer\Html2PdfRenderer;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * 
