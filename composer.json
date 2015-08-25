@@ -22,7 +22,7 @@
     "require":
     {
         "php": ">=5.3",
-        "spipu/html2pdf":"dev-bugfix"
+        "spipu/html2pdf":"dev-bugfix as 4.03.x-dev"
     },
     "autoload":
     {
