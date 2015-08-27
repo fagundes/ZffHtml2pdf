@@ -8,7 +8,7 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * 
+ * Class that creatse and returns the Html2Pdf view strategy
  */
 class ViewHtml2PdfStrategyFactory implements FactoryInterface {
 

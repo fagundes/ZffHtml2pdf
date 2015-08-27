@@ -9,7 +9,7 @@ use Zend\EventManager\ListenerAggregateInterface;
 use Zend\View\ViewEvent;
 
 /**
- * 
+ * Class that selects Html2PdfRenderer wbenever receive a Html2PdfModel from Controller. 
  */
 class Html2PdfStrategy implements ListenerAggregateInterface {
 

@@ -5,33 +5,50 @@ namespace Zff\Html2Pdf\View\Model;
 use Zend\View\Model\ViewModel;
 
 /**
- * 
+ * ViewModel of the Html2Pdf Module.
  */
 class Html2PdfModel extends ViewModel {
 
     protected $terminate = true;
 
-    protected $filename = 'arquivo.pdf';
+    /**
+     * @var string 
+     */
+    protected $filename = 'file.pdf';
     
+    /**
+     * @var string 
+     */
     protected $dest = 'I';
     
+    /**
+     * Filename of the document.
+     * 
+     * @return string 
+     */
     public function getFilename() {
         return $this->filename;
     }
 
+    /**
+     * Destination where to send the document.
+     * 
+     * @return string
+     */
     public function getDest() {
         return $this->dest;
     }
 
     /**
-     * @param string $filename set the document's filename
+     * Set filename of the document.
+     * 
+     * @param string $filename
      */
     public function setFilename($filename) {
         $this->filename = $filename;
     }
 
     /**
-     * @param string $dest Destination where to send the document. 
      * It can take one of the following values:
      *  <ul>
      *      <li>
@@ -45,6 +62,8 @@ class Html2PdfModel extends ViewModel {
      *      <li>FI: equivalent to F + I option</li>
      *      <li>FD: equivalent to F + D option</li>
      *  </ul>
+     * 
+     * @param string $dest Destination where to send the document. 
      */
     public function setDest($dest) {
         $this->dest = $dest;
