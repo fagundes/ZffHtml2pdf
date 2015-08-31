@@ -1,6 +1,6 @@
 # ZffHtml2Pdf
 
-Versão 0.0.1  
+Versão 0.0.3 
 Criado por Vinicius Fagundes.
 
 ## Introdução
@@ -16,21 +16,19 @@ ZffHtml2Pdf é um módulo do ZendFramework 2, que facilita o uso da biblioteca [
 
 ## Instalação
 
-Inclua o trecho abaixo no arquivo `composer.json`:
+Para incluir este modulo como dependencias, execute o comando na raiz do seu projeto:
 
-```js
-   "require": {
-        "fagundes/zff-html2pdf":"0.0.1"
-   }
+```bash
+   php composer.phar require fagundes/zff-html2pdf
 ```
 
-Atualize as dependencias via composer:
+Para obter o modulo, atualize as dependencias via composer:
 
 ```bash
     php composer.phar update
 ```
 
-Inclua o modulo no arquivo `./config/application.config.php`:
+Finalmente, inclua o modulo no arquivo `./config/application.config.php`:
 
 ```php
 return array(
