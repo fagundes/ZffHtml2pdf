@@ -1,42 +1,59 @@
-# ZffHtml2Pdf
+# ZffHtml2Pdf for Zend Framework 2
 
-Versão 0.0.3  
-Criado por Vinicius Fagundes.
+ZffHtml2Pdf module integrates [HTML2PDF](https://github.com/spipu/html2pdf) with Zend Framework 2 easily.
 
-## Introdução
+**Note** right now we are using a [fork](https://github.com/fagundes/html2pdf) from the [original](https://github.com/spipu/html2pdf) HTML2PDF library. 
 
-ZffHtml2Pdf é um módulo do ZendFramework 2, que facilita o uso da biblioteca [spipu/html2pdf](https://github.com/spipu/html2pdf).
+## Installation
 
-**Note** que a biblioteca html2pdf utilizada é um [fork](https://github.com/fagundes/html2pdf) da biblioteca [original](https://github.com/spipu/html2pdf). 
-
-## Requisitos
-
-* Zend Framework 2
-* html2pdf 
-
-## Instalação
-
-Para incluir este modulo como dependencias, execute o comando na raiz do seu projeto:
+Installation of this module uses composer. For composer documentation, please refer to
+[getcomposer.org](http://getcomposer.org/).
 
 ```bash
-   php composer.phar require fagundes/zff-html2pdf
+php composer.phar require fagundes/zff-html2pdf:0.*
 ```
 
-Para obter o modulo, atualize as dependencias via composer:
+Then add `ZffHtml2Pdf` to your `config/application.config.php`.
 
-```bash
-    php composer.phar update
-```
+Installation without composer is not officially supported and requires you to manually install all dependencies that are listed in composer.json
 
-Finalmente, inclua o modulo no arquivo `./config/application.config.php`:
+## Usage
+
+Controller Example: `AnyController.php`
 
 ```php
-return array(
-    //...
-    'modules' => array(
-       'ZffHtml2Pdf',
-       'Application'
-    ),
-    //...
-);
+<?php
+
+use Zff\Html2Pdf\Html2PdfModel;
+
+class AnyController
+{
+
+    public function someAction()
+    {
+        //some logic here
+
+        return new Html2PdfModel(array(
+            'foo' => $foo,
+            'bar' => $bar
+        ));
+    }
+
+}
 ```
+
+View Example: `some.phtml`
+
+```php
+<!-- Regular HTML -->
+    <div class="container">
+        <h2>The header</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.
+        </p>
+    </div>
+```
+
+## Documentation
+
+Check for examples and HTML / CSS support at [html2pdf.fr](http://html2pdf.fr/) and [github.com/spipu/html2pdf](https://github.com/spipu/html2pdf).
