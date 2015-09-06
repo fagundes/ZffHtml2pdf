@@ -4,7 +4,7 @@
     "description": "A ZF2 module using html2pdf library",
     "keywords": ["html", "pdf", "html2pdf", "zf2"],
     "homepage": "http://github.com/fagundes",
-    "license": "LGPL",
+    "license": "MIT",
     "authors":
     [
         {
@@ -13,16 +13,10 @@
             "role": "Developer"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/fagundes/html2pdf"
-        }
-    ],
     "require":
     {
         "php": ">=5.3",
-        "spipu/html2pdf":"dev-bugfix"
+        "spipu/html2pdf":"dev-master"
     },
     "autoload":
     {
