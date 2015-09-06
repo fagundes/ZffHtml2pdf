@@ -1,9 +1,14 @@
 <?php
 
+/**
+ * @license http://opensource.org/licenses/MIT MIT
+ * @copyright Copyright (c) 2015 Vinicius Fagundes
+ */
+
 namespace Zff\Html2Pdf;
 
 return array(
-    'view_manager'    => array(
+    'view_manager' => array(
         'strategies' => array(
             'ViewHtml2PdfStrategy',
         ),

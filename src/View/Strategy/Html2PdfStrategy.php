@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @license http://opensource.org/licenses/MIT MIT  
+ * @copyright Copyright (c) 2015 Vinicius Fagundes
+ */
+
 namespace Zff\Html2Pdf\View\Strategy;
 
 use Zff\Html2Pdf\View\Renderer\Html2PdfRenderer;

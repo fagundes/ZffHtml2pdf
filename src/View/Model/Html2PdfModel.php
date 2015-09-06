@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @license http://opensource.org/licenses/MIT MIT 
+ * @copyright Copyright (c) 2015 Vinicius Fagundes
+ */
+
 namespace Zff\Html2Pdf\View\Model;
 
 use Zend\View\Model\ViewModel;
@@ -15,12 +20,12 @@ class Html2PdfModel extends ViewModel {
      * @var string 
      */
     protected $filename = 'file.pdf';
-    
+
     /**
      * @var string 
      */
     protected $dest = 'I';
-    
+
     /**
      * Filename of the document.
      * 
@@ -68,5 +73,5 @@ class Html2PdfModel extends ViewModel {
     public function setDest($dest) {
         $this->dest = $dest;
     }
-    
+
 }

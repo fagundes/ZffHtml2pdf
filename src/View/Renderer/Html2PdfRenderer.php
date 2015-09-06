@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @license http://opensource.org/licenses/MIT MIT  
+ * @copyright Copyright (c) 2015 Vinicius Fagundes
+ */
+
 namespace Zff\Html2Pdf\View\Renderer;
 
 use Zend\View\Renderer\RendererInterface as Renderer;
@@ -37,14 +42,14 @@ class Html2PdfRenderer implements Renderer {
          */
         //create html2pdf class with default params but no margins
         $html2pdf = new \HTML2PDF('P', 'A4', 'en', true, 'UTF-8', array(0, 0, 0, 0));
-        
+
         //set a variable on the view
         $nameOrModel->setVariable('html2pdf', $html2pdf);
 
         //render the html
         $content = $this->getViewRenderer()->render($nameOrModel, $values);
         $html2pdf->WriteHTML($content);
-        
+
         return $html2pdf->Output($nameOrModel->getFilename(), $nameOrModel->getDest());
     }
 
