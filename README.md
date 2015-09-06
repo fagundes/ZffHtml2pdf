@@ -1,6 +1,6 @@
-# ZffHtml2Pdf for Zend Framework 2
+# Zff Html2Pdf for Zend Framework 2
 
-ZffHtml2Pdf module integrates [HTML2PDF](https://github.com/spipu/html2pdf) with Zend Framework 2 easily.
+`Zff\Html2Pdf` module integrates [HTML2PDF](https://github.com/spipu/html2pdf) with Zend Framework 2 easily.
 
 ~~**Note** right now we are using a [fork](https://github.com/fagundes/html2pdf) from the [original](https://github.com/spipu/html2pdf) HTML2PDF library.~~
 
