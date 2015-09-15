@@ -2,8 +2,6 @@
 
 `Zff\Html2Pdf` module integrates [HTML2PDF](https://github.com/spipu/html2pdf) with Zend Framework 2 easily.
 
-~~**Note** right now we are using a [fork](https://github.com/fagundes/html2pdf) from the [original](https://github.com/spipu/html2pdf) HTML2PDF library.~~
-
 ## Installation
 
 Installation of this module uses composer. For composer documentation, please refer to
@@ -16,6 +14,11 @@ php composer.phar require fagundes/zff-html2pdf:0.*
 Then add `Zff\\Html2Pdf` to your `config/application.config.php`.
 
 Installation without composer is not officially supported and requires you to manually install all dependencies that are listed in composer.json
+
+## TODO
+
+- Rewrite html2pdf examples using `Zff\Html2Pdf`
+- Update php version to support 5.4+ features
 
 ## Usage
 
