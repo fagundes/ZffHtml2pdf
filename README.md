@@ -17,9 +17,9 @@ Installation without composer is not officially supported and requires you to ma
 
 ## TODO
 
-- Rewrite html2pdf examples using `Zff\Html2Pdf`
-- Create a way to easily change params from HTML2PDF's constructor, called on `Html2PdfRenderer` class, on controller, view  or config file.
-- Update php version to support 5.4+ features
+- [ ] Rewrite html2pdf examples using `Zff\Html2Pdf`
+- [ ] Create a way to easily change params from HTML2PDF's constructor, called on `Html2PdfRenderer` class, on controller, view  or config file.
+- [ ] Update php version to support 5.4+ features
 
 ## Usage
 
