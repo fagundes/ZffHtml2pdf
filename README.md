@@ -1,4 +1,7 @@
-# Zff Html2Pdf for Zend Framework 2
+[![Latest Stable Version](https://poser.pugx.org/fagundes/zff-html2pdf/v/stable)](https://packagist.org/packages/fagundes/zff-html2pdf) [![Total Downloads](https://poser.pugx.org/fagundes/zff-html2pdf/downloads)](https://packagist.org/packages/fagundes/zff-html2pdf) [![Latest Unstable Version](https://poser.pugx.org/fagundes/zff-html2pdf/v/unstable)](https://packagist.org/packages/fagundes/zff-html2pdf) [![License](https://poser.pugx.org/fagundes/zff-html2pdf/license)](https://packagist.org/packages/fagundes/zff-html2pdf)
+
+Zff Html2Pdf for Zend Framework 2
+===================================
 
 `Zff\Html2Pdf` module integrates [HTML2PDF](https://github.com/spipu/html2pdf) with Zend Framework 2 easily.
 
