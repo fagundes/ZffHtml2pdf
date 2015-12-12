@@ -18,8 +18,13 @@ Then add `Zff\\Html2Pdf` to your `config/application.config.php`.
 
 Installation without composer is not officially supported and requires you to manually install all dependencies that are listed in composer.json
 
+## Contribuing
+
+If you want to help check the contribuing instructions [here](CONTRIBUTING.md).
+
 ## TODO
 
+- [ ] Create unit tests
 - [ ] Rewrite html2pdf examples using `Zff\Html2Pdf`
 - [ ] Create a way to easily change params from HTML2PDF's constructor, called on `Html2PdfRenderer` class, on controller, view  or config file.
 - [ ] Update php version to support 5.4+ features

@@ -16,7 +16,10 @@
     "require":
     {
         "php": ">=5.3",
-        "spipu/html2pdf":"dev-master"
+        "spipu/html2pdf":"~4.4"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "~2"
     },
     "autoload":
     {
