@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @license http://opensource.org/licenses/MIT MIT  
+ * @license http://opensource.org/licenses/MIT MIT
  * @copyright Copyright (c) 2015 Vinicius Fagundes
  */
 
@@ -15,8 +14,8 @@ use Zend\View\Resolver\ResolverInterface as Resolver;
 /**
  * Class that transforms the html of the view in pdf using HTML2PDF library and outputs it.
  */
-class Html2PdfRenderer implements Renderer {
-
+class Html2PdfRenderer implements Renderer
+{
     protected $viewRenderer;
 
     /**
@@ -24,21 +23,24 @@ class Html2PdfRenderer implements Renderer {
      *
      * @var Resolver
      */
-    private $__templateResolver;
+    private $templateResolver;
 
     /**
      * @return Renderer
      */
-    public function getViewRenderer() {
+    public function getViewRenderer()
+    {
         return $this->viewRenderer;
     }
 
-    public function setViewRenderer(Renderer $viewRenderer) {
+    public function setViewRenderer(Renderer $viewRenderer)
+    {
         $this->viewRenderer = $viewRenderer;
         return $this;
     }
 
-    public function render($nameOrModel, $values = null) {
+    public function render($nameOrModel, $values = null)
+    {
         try {
             /**
              * @todo a way to easly change this params on controller, view  and/or config file
@@ -51,7 +53,7 @@ class Html2PdfRenderer implements Renderer {
 
             //render the .phtml to html
             $content = $this->getViewRenderer()->render($nameOrModel, $values);
-            
+
             //convert to PDF
             $html2pdf->WriteHTML($content);
 
@@ -71,7 +73,8 @@ class Html2PdfRenderer implements Renderer {
      *
      * @return Html2PdfRenderer
      */
-    public function getEngine() {
+    public function getEngine()
+    {
         return $this;
     }
 
@@ -82,9 +85,9 @@ class Html2PdfRenderer implements Renderer {
      * @return PhpRenderer
      * @throws Exception\InvalidArgumentException
      */
-    public function setResolver(Resolver $resolver) {
-        $this->__templateResolver = $resolver;
+    public function setResolver(Resolver $resolver)
+    {
+        $this->templateResolver = $resolver;
         return $this;
     }
-
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * @license http://opensource.org/licenses/MIT MIT  
+ * @license http://opensource.org/licenses/MIT MIT
  * @copyright Copyright (c) 2015 Vinicius Fagundes
  */
 
@@ -14,7 +14,8 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 /**
  * Class that creatse and returns the Html2Pdf view strategy
  */
-class ViewHtml2PdfStrategyFactory implements FactoryInterface {
+class ViewHtml2PdfStrategyFactory implements FactoryInterface
+{
 
     /**
      * Create and return the Html2Pdf view strategy
@@ -27,11 +28,11 @@ class ViewHtml2PdfStrategyFactory implements FactoryInterface {
      * @param  ServiceLocatorInterface $serviceLocator
      * @return JsonStrategy
      */
-    public function createService(ServiceLocatorInterface $serviceLocator) {
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
         $html2pdfRenderer = new Html2PdfRenderer();
         $html2pdfRenderer->setViewRenderer($serviceLocator->get('ViewManager')->getRenderer());
         $html2pdfStrategy = new Html2PdfStrategy($html2pdfRenderer);
         return $html2pdfStrategy;
     }
-
 }

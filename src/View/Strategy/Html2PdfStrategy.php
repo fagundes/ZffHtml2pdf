@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @license http://opensource.org/licenses/MIT MIT  
+ * @license http://opensource.org/licenses/MIT MIT
  * @copyright Copyright (c) 2015 Vinicius Fagundes
  */
 
@@ -14,16 +13,18 @@ use Zend\EventManager\ListenerAggregateInterface;
 use Zend\View\ViewEvent;
 
 /**
- * Class that selects Html2PdfRenderer wbenever receive a Html2PdfModel from Controller. 
+ * Class that selects Html2PdfRenderer wbenever receive a Html2PdfModel from Controller.
  */
-class Html2PdfStrategy implements ListenerAggregateInterface {
+class Html2PdfStrategy implements ListenerAggregateInterface
+{
 
     /**
      * Constructor
      *
      * @param  Html2PdfRenderer $renderer
      */
-    public function __construct(Html2PdfRenderer $renderer) {
+    public function __construct(Html2PdfRenderer $renderer)
+    {
         $this->renderer = $renderer;
     }
 
@@ -34,7 +35,8 @@ class Html2PdfStrategy implements ListenerAggregateInterface {
      * @param  int $priority
      * @return void
      */
-    public function attach(EventManagerInterface $events, $priority = 1) {
+    public function attach(EventManagerInterface $events, $priority = 1)
+    {
         $this->listeners[] = $events->attach(ViewEvent::EVENT_RENDERER, array($this, 'selectRenderer'), $priority);
         $this->listeners[] = $events->attach(ViewEvent::EVENT_RESPONSE, array($this, 'injectResponse'), $priority);
     }
@@ -46,7 +48,8 @@ class Html2PdfStrategy implements ListenerAggregateInterface {
      * @param  ViewEvent $e
      * @return null|Html2PdfRenderer
      */
-    public function selectRenderer(ViewEvent $e) {
+    public function selectRenderer(ViewEvent $e)
+    {
         $model = $e->getModel();
 
         if (!$model instanceof Html2PdfModel) {
@@ -67,19 +70,20 @@ class Html2PdfStrategy implements ListenerAggregateInterface {
      * @param ViewEvent $e
      * @return void
      */
-    public function injectResponse(ViewEvent $e) {
+    public function injectResponse(ViewEvent $e)
+    {
         $renderer = $e->getRenderer();
         if ($renderer !== $this->renderer) {
             return;
         }
     }
 
-    public function detach(EventManagerInterface $events) {
+    public function detach(EventManagerInterface $events)
+    {
         foreach ($this->listeners as $index => $listener) {
             if ($events->detach($listener)) {
                 unset($this->listeners[$index]);
             }
         }
     }
-
 }

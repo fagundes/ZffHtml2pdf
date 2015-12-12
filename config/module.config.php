@@ -19,4 +19,3 @@ return array(
         ),
     ),
 );
-
