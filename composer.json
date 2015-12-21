@@ -3,7 +3,7 @@
     "type": "library",
     "description": "A ZF2 module using html2pdf library",
     "keywords": ["html", "pdf", "html2pdf", "zf2"],
-    "homepage": "http://github.com/fagundes",
+    "homepage": "http://github.com/fagundes/ZffHtml2pdf",
     "license": "MIT",
     "authors":
     [
@@ -16,16 +16,20 @@
     "require":
     {
         "php": ">=5.3",
+        "zendframework/zend-view":"2.3",
+        "zendframework/zend-http":"2.3",
         "spipu/html2pdf":"~4.4"
     },
     "require-dev": {
+        "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "~2"
     },
     "autoload":
     {
         "psr-4":
         {
-            "Zff\\Html2Pdf\\": "src/"
+            "Zff\\Html2Pdf\\": "src/",
+            "ZffTest\\Html2Pdf\\": "test/"
         }
     },
     "extra":

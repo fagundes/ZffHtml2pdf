@@ -2,7 +2,4 @@ nbproject
 vendor
 composer.phar
 composer.lock
-phpunit.xml
-phpmd.xml
-phpdox.xml
 .project
