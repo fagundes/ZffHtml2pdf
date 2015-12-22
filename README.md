@@ -1,4 +1,12 @@
-[![Latest Stable Version](https://poser.pugx.org/fagundes/zff-html2pdf/v/stable)](https://packagist.org/packages/fagundes/zff-html2pdf) [![Total Downloads](https://poser.pugx.org/fagundes/zff-html2pdf/downloads)](https://packagist.org/packages/fagundes/zff-html2pdf) [![Latest Unstable Version](https://poser.pugx.org/fagundes/zff-html2pdf/v/unstable)](https://packagist.org/packages/fagundes/zff-html2pdf) [![License](https://poser.pugx.org/fagundes/zff-html2pdf/license)](https://packagist.org/packages/fagundes/zff-html2pdf)
+[![Latest Unstable Version](https://poser.pugx.org/fagundes/zff-html2pdf/v/unstable)](https://packagist.org/packages/fagundes/zff-html2pdf)
+[![Build Status](https://travis-ci.org/fagundes/ZffHtml2pdf.svg?branch=develop)](https://travis-ci.org/fagundes/ZffHtml2pdf)
+[![Coverage Status](https://coveralls.io/repos/fagundes/ZffHtml2pdf/badge.svg?branch=develop&service=github)](https://coveralls.io/github/fagundes/ZffHtml2pdf?branch=master)
+
+[![Latest Stable Version](https://poser.pugx.org/fagundes/zff-html2pdf/v/stable)](https://packagist.org/packages/fagundes/zff-html2pdf)
+[![Build Status](https://travis-ci.org/fagundes/ZffHtml2pdf.svg?branch=0.2.0)](https://travis-ci.org/fagundes/ZffHtml2pdf)
+[![Coverage Status](https://coveralls.io/repos/fagundes/ZffHtml2pdf/badge.svg?branch=0.2.0&service=github)](https://coveralls.io/github/fagundes/ZffHtml2pdf?branch=master)
+
+[![Total Downloads](https://poser.pugx.org/fagundes/zff-html2pdf/downloads)](https://packagist.org/packages/fagundes/zff-html2pdf) [![License](https://poser.pugx.org/fagundes/zff-html2pdf/license)](https://packagist.org/packages/fagundes/zff-html2pdf)
 
 Zff Html2Pdf for Zend Framework 2
 ===================================
