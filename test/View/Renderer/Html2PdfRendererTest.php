@@ -71,5 +71,4 @@ class Html2PdfRendererTest extends TestCase
         $this->setExpectedException('HTML2PDF_exception');
         $this->renderer->render($model);
     }
-
 }

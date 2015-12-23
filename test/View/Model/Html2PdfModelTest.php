@@ -56,5 +56,4 @@ class Html2PdfModelTest extends TestCase
         $this->assertAttributeEquals($this->model->getFilename(), 'filename', $this->model);
         $this->assertAttributeEquals($this->model->getDest(), 'dest', $this->model);
     }
-    
 }

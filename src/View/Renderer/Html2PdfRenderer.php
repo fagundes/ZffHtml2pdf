@@ -33,6 +33,41 @@ class Html2PdfRenderer implements Renderer
         return $this;
     }
 
+    /**
+     * Set script resolver
+     *
+     * @param  Resolver $resolver
+     * @return Html2PdfRenderer
+     * @throws Exception\InvalidArgumentException
+     */
+    public function setResolver(Resolver $resolver)
+    {
+        return $this->getViewRenderer()->setResolver($resolver);
+    }
+
+    /**
+     * Retrieve template name or template resolver
+     *
+     * @param  null|string $name
+     * @return string|Resolver
+     */
+    public function resolver($name = null)
+    {
+        return $this->getViewRenderer()->resolver($name);
+    }
+
+    /**
+     * Return the template engine object
+     *
+     * Returns the object instance, as it is its own template engine
+     *
+     * @return Html2PdfRenderer
+     */
+    public function getEngine()
+    {
+        return $this;
+    }
+
   /**
    * @param mixed $nameOrModel
    * @param mixed $values
@@ -58,40 +93,5 @@ class Html2PdfRenderer implements Renderer
 
         // send the PDF
         return $html2pdf->Output($nameOrModel->getFilename(), $nameOrModel->getDest());
-    }
-
-    /**
-     * Return the template engine object
-     *
-     * Returns the object instance, as it is its own template engine
-     *
-     * @return Html2PdfRenderer
-     */
-    public function getEngine()
-    {
-        return $this;
-    }
-
-    /**
-     * Set script resolver
-     *
-     * @param  Resolver $resolver
-     * @return Html2PdfRenderer
-     * @throws Exception\InvalidArgumentException
-     */
-    public function setResolver(Resolver $resolver)
-    {
-        return $this->getViewRenderer()->setResolver($resolver);
-    }
-
-    /**
-     * Retrieve template name or template resolver
-     *
-     * @param  null|string $name
-     * @return string|Resolver
-     */
-    public function resolver($name = null)
-    {
-        return $this->getViewRenderer()->resolver($name);
     }
 }
