@@ -32,8 +32,8 @@ If you want to help check the contribuing instructions [here](CONTRIBUTING.md).
 
 ## TODO
 
+- [x] Bump the PHP minimum version to 5.4+
 - [ ] Create more unit tests
-- [ ] Bump the PHP minimum version to 5.4+
 - [ ] Rewrite html2pdf examples using `Zff\Html2Pdf`
 - [ ] Create a way to easily change params from HTML2PDF's constructor, called on `Html2PdfRenderer` class, on controller, view  or config file.
 

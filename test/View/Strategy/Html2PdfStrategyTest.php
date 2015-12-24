@@ -87,9 +87,9 @@ class Html2PdfStrategyTest extends TestCase
     {
         $events = new EventManager();
         $events->attachAggregate($this->strategy);
-        foreach (array('renderer' => 'selectRenderer', 'response' => 'injectResponse') as $event => $method) {
+        foreach (['renderer' => 'selectRenderer', 'response' => 'injectResponse'] as $event => $method) {
             $listeners        = $events->getListeners($event);
-            $expectedCallback = array($this->strategy, $method);
+            $expectedCallback = [$this->strategy, $method];
             $expectedPriority = 1;
             $found            = false;
             foreach ($listeners as $listener) {
@@ -109,9 +109,9 @@ class Html2PdfStrategyTest extends TestCase
     {
         $events = new EventManager();
         $events->attachAggregate($this->strategy, 1000);
-        foreach (array('renderer' => 'selectRenderer', 'response' => 'injectResponse') as $event => $method) {
+        foreach (['renderer' => 'selectRenderer', 'response' => 'injectResponse'] as $event => $method) {
             $listeners        = $events->getListeners($event);
-            $expectedCallback = array($this->strategy, $method);
+            $expectedCallback = [$this->strategy, $method];
             $expectedPriority = 1000;
             $found            = false;
             foreach ($listeners as $listener) {

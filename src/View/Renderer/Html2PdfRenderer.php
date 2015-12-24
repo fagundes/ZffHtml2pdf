@@ -80,7 +80,7 @@ class Html2PdfRenderer implements Renderer
          * @todo a way to easly change this params on controller, view  and/or config file
          */
         //create html2pdf class with default params but no margins
-        $html2pdf = new Html2Pdf('P', 'A4', 'en', true, 'UTF-8', array(0, 0, 0, 0));
+        $html2pdf = new Html2Pdf('P', 'A4', 'en', true, 'UTF-8', [0, 0, 0, 0]);
 
         //set the variable html2pdf on the view
         $nameOrModel->setVariable('html2pdf', $html2pdf);

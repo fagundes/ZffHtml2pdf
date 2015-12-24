@@ -22,9 +22,9 @@ class Html2PdfModelTest extends TestCase
 
     protected function setUp()
     {
-        $this->model = new Html2PdfModel(array(
+        $this->model = new Html2PdfModel([
             'foo' => 'bar'
-        ));
+        ]);
 
         $this->model->setFilename('myNewDoc.pdf');
         $this->model->setDest('D');
@@ -34,7 +34,7 @@ class Html2PdfModelTest extends TestCase
     {
         $model = new Html2PdfModel();
         $this->assertInstanceOf('Zend\View\Variables', $model->getVariables());
-        $this->assertEquals(array(), $model->getOptions());
+        $this->assertEquals([], $model->getOptions());
     }
 
     public function testIsTerminateModelAsDefault()
