@@ -7,15 +7,15 @@
 
 namespace Zff\Html2Pdf;
 
-return array(
-    'view_manager' => array(
-        'strategies' => array(
+return [
+    'view_manager' => [
+        'strategies' => [
             'ViewHtml2PdfStrategy',
-        ),
-    ),
-    'service_manager' => array(
-        'factories' => array(
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
             'ViewHtml2PdfStrategy' => 'Zff\Html2Pdf\Mvc\Service\ViewHtml2PdfStrategyFactory',
-        ),
-    ),
-);
+        ],
+    ],
+];

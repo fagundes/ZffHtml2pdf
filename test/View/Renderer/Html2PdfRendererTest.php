@@ -42,9 +42,9 @@ class Html2PdfRendererTest extends TestCase
 
     public function testPassingNameToResolverReturnsScriptName()
     {
-        $this->renderer->resolver()->addPath(__DIR__.'/_templates');
+        $this->renderer->resolver()->addPath('./test/_templates');
         $filename = $this->renderer->resolver('layout.phtml');
-        $this->assertEquals(realpath(__DIR__.'/_templates/layout.phtml'), $filename);
+        $this->assertEquals(realpath('./test/_templates/layout.phtml'), $filename);
     }
 
     public function testResolverIsAProxyToPhpRendererResolver()
@@ -66,9 +66,22 @@ class Html2PdfRendererTest extends TestCase
         $model = new Html2PdfModel();
         $model->setTemplate('invalid.phtml');
 
-        $this->renderer->resolver()->addPath(__DIR__.'/_templates');
+        $this->renderer->resolver()->addPath('./test/_templates');
 
         $this->setExpectedException('HTML2PDF_exception');
         $this->renderer->render($model);
+    }
+
+    public function testPassingValidHtmlToRenderAsString()
+    {
+        $model = new Html2PdfModel();
+        $model->setTemplate('template00.phtml');
+        $model->setDest('S');
+
+        $this->renderer->resolver()->addPath('./test/_templates');
+
+        $pdfContentAsString = $this->renderer->render($model);
+
+        $this->assertStringStartsWith('%PDF', $pdfContentAsString);
     }
 }

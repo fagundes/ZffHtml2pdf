@@ -16,13 +16,12 @@
     "require":
     {
         "php": ">=5.4",
-        "zendframework/zend-view":"~2.3",
-        "zendframework/zend-http":"~2.3",
+        "zendframework/zend-view":"~2.4",
+        "zendframework/zend-http":"~2.4",
         "spipu/html2pdf":"~4.4"
     },
     "require-dev": {
-        "zendframework/zend-servicemanager":"~2.3",
-        "zendframework/zend-filter":"~2.3",
+        "zendframework/zendframework":"~2.4.0",
         "phpunit/phpunit": "~4.0",
         "squizlabs/php_codesniffer": "~2",
         "thomasbachem/php-short-array-syntax-converter": "dev-master"
