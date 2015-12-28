@@ -7,6 +7,7 @@
 namespace ZffTest\Html2Pdf;
 
 use PHPUnit_Framework_TestCase as TestCase;
+use Zff\Html2Pdf\Module;
 
 /**
  * @author Vinicius Fagundes <mvlacerda@gmail.com>
@@ -15,30 +16,25 @@ class ModuleTest extends TestCase
 {
 
     /**
-     * Scans service manager configuration, returning all services created by factories and invokables
-     * @return array
+     * @var Module
      */
-    public function provideServiceList()
+    protected $module;
+
+    public function setUp()
     {
-        return [
-            [
-                'service' => 'ViewHtml2PdfStrategy',
-                'class'   => '\Zff\Html2Pdf\View\Strategy\Html2PdfStrategy'
-            ]
-        ];
+        $this->module = new Module;
     }
 
-    /**
-     * @dataProvider provideServiceList
-     */
-    public function testService($service, $class)
+    public function testConfig()
     {
-        $sm = Bootstrap::getServiceManager();
+        $this->assertNotEmpty($this->module->getConfig());
 
-        // test if service is available in SM
-        $this->assertTrue($sm->has($service));
+        $configArr = include __DIR__.'/../config/module.config.php';
 
-        // test if correct instance is created
-        $this->assertInstanceOf($class, $sm->get($service));
+        $this->assertEquals($configArr, $this->module->getConfig());
+    }
+
+    public function testAutoloader() {
+        $this->assertNotEmpty($this->module->getAutoloaderConfig());
     }
 }
