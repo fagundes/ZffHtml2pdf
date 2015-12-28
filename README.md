@@ -3,8 +3,8 @@
 [![Coverage Status](https://coveralls.io/repos/fagundes/ZffHtml2pdf/badge.svg?branch=develop&service=github)](https://coveralls.io/github/fagundes/ZffHtml2pdf?branch=develop)
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/fagundes/zff-html2pdf.svg)](https://packagist.org/packages/fagundes/zff-html2pdf)
-[![Build Status](https://travis-ci.org/fagundes/ZffHtml2pdf.svg?branch=0.2.0)](https://travis-ci.org/fagundes/ZffHtml2pdf)
-[![Coverage Status](https://coveralls.io/repos/fagundes/ZffHtml2pdf/badge.svg?branch=0.2.0&service=github)](https://coveralls.io/github/fagundes/ZffHtml2pdf?branch=0.2.0   )
+[![Build Status](https://travis-ci.org/fagundes/ZffHtml2pdf.svg?branch=0.3.0)](https://travis-ci.org/fagundes/ZffHtml2pdf)
+[![Coverage Status](https://coveralls.io/repos/fagundes/ZffHtml2pdf/badge.svg?branch=0.3.0&service=github)](https://coveralls.io/github/fagundes/ZffHtml2pdf?branch=0.3.0)
 
 [![Total Downloads](https://poser.pugx.org/fagundes/zff-html2pdf/downloads)](https://packagist.org/packages/fagundes/zff-html2pdf) [![License](https://poser.pugx.org/fagundes/zff-html2pdf/license)](https://packagist.org/packages/fagundes/zff-html2pdf)
 
