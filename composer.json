@@ -15,20 +15,19 @@
     ],
     "require":
     {
-        "php": ">=5.4",
-        "zendframework/zend-view":"~2.4",
-        "zendframework/zend-http":"~2.4",
+        "php": ">=5.3.23",
+        "zendframework/zend-view":"2.5.1",
+        "zendframework/zend-http":"2.5.1",
         "spipu/html2pdf":"~4.4"
     },
     "require-dev": {
-        "zendframework/zend-servicemanager":"~2.4",
-        "zendframework/zend-modulemanager":"~2.4",
-        "zendframework/zend-mvc":"~2.4",
-        "zendframework/zend-filter":"~2.4",
-        "zendframework/zend-serializer":"~2.4",
-        "zendframework/zend-log":"~2.4",
-        "zendframework/zend-i18n":"~2.4",
-        "zendframework/zend-console":"~2.4",
+        "zendframework/zend-modulemanager":"2.5.1",
+        "zendframework/zend-mvc":"2.5.1",
+        "zendframework/zend-filter":"2.5.1",
+        "zendframework/zend-serializer":"2.5.1",
+        "zendframework/zend-log":"2.5.1",
+        "zendframework/zend-i18n":"2.5.1",
+        "zendframework/zend-console":"2.5.1",
         "phpunit/phpunit": "~4.0",
         "squizlabs/php_codesniffer": "~2",
         "thomasbachem/php-short-array-syntax-converter": "dev-master"
