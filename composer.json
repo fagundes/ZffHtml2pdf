@@ -15,20 +15,19 @@
     ],
     "require":
     {
-        "php": ">=5.3.23",
-        "zendframework/zend-view":"2.5.1",
-        "zendframework/zend-http":"2.5.1",
+        "php": ">=5.5",
+        "zendframework/zend-view":"~2.5",
+        "zendframework/zend-http":"~2.5",
         "spipu/html2pdf":"~4.4"
     },
     "require-dev": {
-        "zendframework/zend-modulemanager":"2.5.1",
-        "zendframework/zend-mvc":"2.5.1",
-        "zendframework/zend-filter":"2.5.1",
-        "zendframework/zend-inputfilter":"2.5.1",
-        "zendframework/zend-serializer":"2.5.1",
-        "zendframework/zend-log":"2.5.1",
-        "zendframework/zend-i18n":"2.5.1",
-        "zendframework/zend-console":"2.5.1",
+        "zendframework/zend-modulemanager":"~2.5",
+        "zendframework/zend-mvc":"~2.5",
+        "zendframework/zend-filter":"~2.5",
+        "zendframework/zend-serializer":"~2.5",
+        "zendframework/zend-log":"~2.5",
+        "zendframework/zend-i18n":"~2.5",
+        "zendframework/zend-console":"~2.5",
         "phpunit/phpunit": "~4.0",
         "squizlabs/php_codesniffer": "~2",
         "thomasbachem/php-short-array-syntax-converter": "dev-master"
@@ -48,8 +47,8 @@
     "extra":
     {
         "branch-alias": {
-            "dev-master": "0.2.x-dev",
-            "dev-develop": "0.3.x-dev"
+            "dev-master": "0.3.x-dev",
+            "dev-develop": "0.4.x-dev"
         }
     }
 }
