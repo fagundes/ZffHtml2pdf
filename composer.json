@@ -29,8 +29,7 @@
         "zendframework/zend-i18n":"~2.5",
         "zendframework/zend-console":"~2.5",
         "phpunit/phpunit": "~4.0",
-        "squizlabs/php_codesniffer": "~2",
-        "thomasbachem/php-short-array-syntax-converter": "dev-master"
+        "squizlabs/php_codesniffer": "~2"
     },
     "autoload":
     {
