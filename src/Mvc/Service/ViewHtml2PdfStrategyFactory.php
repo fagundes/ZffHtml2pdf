@@ -6,6 +6,10 @@
 
 namespace Zff\Html2Pdf\Mvc\Service;
 
+use Interop\Container\ContainerInterface;
+use Interop\Container\Exception\ContainerException;
+use Zend\ServiceManager\Exception\ServiceNotCreatedException;
+use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zff\Html2Pdf\View\Strategy\Html2PdfStrategy;
 use Zff\Html2Pdf\View\Renderer\Html2PdfRenderer;
 use Zend\ServiceManager\FactoryInterface;
@@ -26,13 +30,35 @@ class ViewHtml2PdfStrategyFactory implements FactoryInterface
      * It then attaches the strategy to the View service, at a priority of 100.
      *
      * @param  ServiceLocatorInterface $serviceLocator
-     * @return JsonStrategy
+     * @return Html2PdfStrategy
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $html2pdfRenderer = new Html2PdfRenderer();
-        $html2pdfRenderer->setViewRenderer($serviceLocator->get('ViewManager')->getRenderer());
+        $html2pdfRenderer->setViewRenderer($serviceLocator->get('ViewRenderer'));
         $html2pdfStrategy = new Html2PdfStrategy($html2pdfRenderer);
+
+        return $html2pdfStrategy;
+    }
+
+    /**
+     * Create an object
+     *
+     * @param  ContainerInterface $container
+     * @param  string $requestedName
+     * @param  null|array $options
+     * @return Html2PdfStrategy
+     * @throws ServiceNotFoundException if unable to resolve the service.
+     * @throws ServiceNotCreatedException if an exception is raised when
+     *     creating a service.
+     * @throws ContainerException if any other error occurs
+     */
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    {
+        $html2pdfRenderer = new Html2PdfRenderer();
+        $html2pdfRenderer->setViewRenderer($container->get('ViewRenderer'));
+        $html2pdfStrategy = new Html2PdfStrategy($html2pdfRenderer);
+
         return $html2pdfStrategy;
     }
 }

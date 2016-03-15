@@ -9,14 +9,18 @@ namespace Zff\Html2Pdf\View\Strategy;
 use Zff\Html2Pdf\View\Renderer\Html2PdfRenderer;
 use Zff\Html2Pdf\View\Model\Html2PdfModel;
 use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
+use Zend\EventManager\AbstractListenerAggregate;
 use Zend\View\ViewEvent;
 
 /**
  * Class that selects Html2PdfRenderer wbenever receive a Html2PdfModel from Controller.
  */
-class Html2PdfStrategy implements ListenerAggregateInterface
+class Html2PdfStrategy extends AbstractListenerAggregate
 {
+    /**
+     * @var Html2PdfRenderer
+     */
+    protected $renderer;
 
     /**
      * Constructor

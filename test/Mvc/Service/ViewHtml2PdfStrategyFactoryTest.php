@@ -23,7 +23,7 @@ class ViewHtml2PdfStrategyFactoryTest extends TestCase
     {
         $config = ['modules' => ['Zff\\Html2Pdf'], 'module_listener_options' => []];
 
-        $serviceManager = new ServiceManager(new ServiceManagerConfig());
+        $serviceManager = new ServiceManager((new ServiceManagerConfig())->toArray());
         $serviceManager->setService('ApplicationConfig', $config);
         $serviceManager->get('ModuleManager')->loadModules();
 
