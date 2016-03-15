@@ -12,6 +12,7 @@ use Zend\Http\Request as HttpRequest;
 use Zend\Http\Response as HttpResponse;
 use Zend\View\Model\ViewModel;
 use Zend\View\ViewEvent;
+use Zend\EventManager\Test\EventListenerIntrospectionTrait;
 use Zff\Html2Pdf\View\Model\Html2PdfModel;
 use Zff\Html2Pdf\View\Renderer\Html2PdfRenderer;
 use Zff\Html2Pdf\View\Strategy\Html2PdfStrategy;
@@ -21,12 +22,30 @@ use Zff\Html2Pdf\View\Strategy\Html2PdfStrategy;
  */
 class Html2PdfStrategyTest extends TestCase
 {
+    use EventListenerIntrospectionTrait;
+
+    /**
+     * @var Html2PdfRenderer
+     */
+    protected $renderer;
+    /**
+     * @var Html2PdfStrategy
+     */
+    protected $strategy;
+    /**
+     * @var ViewEvent
+     */
+    protected $event;
+    /**
+     * @var HttpResponse
+     */
+    protected $response;
 
     public function setUp()
     {
         $this->renderer = new Html2PdfRenderer;
         $this->strategy = new Html2PdfStrategy($this->renderer);
-        $this->event    = new ViewEvent();
+        $this->event = new ViewEvent();
         $this->response = new HttpResponse();
     }
 
@@ -76,7 +95,7 @@ class Html2PdfStrategyTest extends TestCase
 
     public function testReturnsNullWhenCannotSelectRenderer()
     {
-        $model   = new ViewModel();
+        $model = new ViewModel();
         $request = new HttpRequest();
         $this->event->setModel($model);
         $this->event->setRequest($request);
@@ -86,19 +105,18 @@ class Html2PdfStrategyTest extends TestCase
     public function testAttachesListenersAtExpectedPriorities()
     {
         $events = new EventManager();
-        $events->attachAggregate($this->strategy);
+        $this->strategy->attach($events);
         foreach (['renderer' => 'selectRenderer', 'response' => 'injectResponse'] as $event => $method) {
-            $listeners        = $events->getListeners($event);
-            $expectedCallback = [$this->strategy, $method];
+            $listeners = $this->getListenersForEvent($event, $events, true);
+            $expectedListener = [$this->strategy, $method];
             $expectedPriority = 1;
-            $found            = false;
-            foreach ($listeners as $listener) {
-                $callback = $listener->getCallback();
-                if ($callback === $expectedCallback) {
-                    if ($listener->getMetadatum('priority') == $expectedPriority) {
-                        $found = true;
-                        break;
-                    }
+            $found = false;
+            foreach ($listeners as $priority => $listener) {
+                if ($listener === $expectedListener
+                    && $priority === $expectedPriority
+                ) {
+                    $found = true;
+                    break;
                 }
             }
             $this->assertTrue($found, 'Listener not found');
@@ -108,19 +126,18 @@ class Html2PdfStrategyTest extends TestCase
     public function testCanAttachListenersAtSpecifiedPriority()
     {
         $events = new EventManager();
-        $events->attachAggregate($this->strategy, 1000);
+        $this->strategy->attach($events, 1000);
         foreach (['renderer' => 'selectRenderer', 'response' => 'injectResponse'] as $event => $method) {
-            $listeners        = $events->getListeners($event);
-            $expectedCallback = [$this->strategy, $method];
+            $listeners = $this->getListenersForEvent($event, $events, true);
+            $expectedListener = [$this->strategy, $method];
             $expectedPriority = 1000;
-            $found            = false;
-            foreach ($listeners as $listener) {
-                $callback = $listener->getCallback();
-                if ($callback === $expectedCallback) {
-                    if ($listener->getMetadatum('priority') == $expectedPriority) {
-                        $found = true;
-                        break;
-                    }
+            $found = false;
+            foreach ($listeners as $priority => $listener) {
+                if ($listener === $expectedListener
+                    && $priority === $expectedPriority
+                ) {
+                    $found = true;
+                    break;
                 }
             }
             $this->assertTrue($found, 'Listener not found');
@@ -129,16 +146,16 @@ class Html2PdfStrategyTest extends TestCase
 
     public function testDetachesListeners()
     {
-        $events    = new EventManager();
-        $events->attachAggregate($this->strategy);
-        $listeners = $events->getListeners('renderer');
-        $this->assertEquals(1, count($listeners));
-        $listeners = $events->getListeners('response');
-        $this->assertEquals(1, count($listeners));
-        $events->detachAggregate($this->strategy);
-        $listeners = $events->getListeners('renderer');
-        $this->assertEquals(0, count($listeners));
-        $listeners = $events->getListeners('response');
-        $this->assertEquals(0, count($listeners));
+        $events = new EventManager();
+        $this->strategy->attach($events, 100);
+        $listeners = iterator_to_array($this->getListenersForEvent('renderer', $events));
+        $this->assertCount(1, $listeners);
+        $listeners = iterator_to_array($this->getListenersForEvent('response', $events));
+        $this->assertCount(1, $listeners);
+        $this->strategy->detach($events, 100);
+        $listeners = iterator_to_array($this->getListenersForEvent('renderer', $events));
+        $this->assertCount(0, $listeners);
+        $listeners = iterator_to_array($this->getListenersForEvent('response', $events));
+        $this->assertCount(0, $listeners);
     }
 }
