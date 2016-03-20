@@ -152,7 +152,7 @@ class Html2PdfStrategyTest extends TestCase
         $this->assertCount(1, $listeners);
         $listeners = iterator_to_array($this->getListenersForEvent('response', $events));
         $this->assertCount(1, $listeners);
-        $this->strategy->detach($events, 100);
+        $this->strategy->detach($events);
         $listeners = iterator_to_array($this->getListenersForEvent('renderer', $events));
         $this->assertCount(0, $listeners);
         $listeners = iterator_to_array($this->getListenersForEvent('response', $events));

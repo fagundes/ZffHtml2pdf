@@ -81,13 +81,4 @@ class Html2PdfStrategy extends AbstractListenerAggregate
             return;
         }
     }
-
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
-    }
 }
