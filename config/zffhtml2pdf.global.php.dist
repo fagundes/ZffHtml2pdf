@@ -1,0 +1,20 @@
+<?php
+/**
+ * ZffHtml2Pdf Configuration
+ *
+ * If you have a ./config/autoload/ directory set up for your project, you can
+ * drop this config file in it and change the values as you wish.
+ */
+return [
+    'zff-html2pdf' => [
+        //default factory options
+        'options' => [
+            'orientation' => 'P',
+            'format'      => 'A4',
+            'lang'        => 'en',
+            'unicode'     => true,
+            'encoding'    => 'UTF-8',
+            'margins'      => [0, 0, 0, 0],
+        ],
+    ],
+];

@@ -10,13 +10,15 @@ use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
+use Zff\Html2Pdf\Html2PdfFactory;
 use Zff\Html2Pdf\View\Strategy\Html2PdfStrategy;
 use Zff\Html2Pdf\View\Renderer\Html2PdfRenderer;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use HTML2PDF as Html2Pdf;
 
 /**
- * Class that creatse and returns the Html2Pdf view strategy
+ * Creates and returns the Html2Pdf view strategy
  */
 class ViewHtml2PdfStrategyFactory implements FactoryInterface
 {
@@ -32,13 +34,9 @@ class ViewHtml2PdfStrategyFactory implements FactoryInterface
      * @param  ServiceLocatorInterface $serviceLocator
      * @return Html2PdfStrategy
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function createService(ServiceLocatorInterface $serviceLocator, $cName = null, $rName = null)
     {
-        $html2pdfRenderer = new Html2PdfRenderer();
-        $html2pdfRenderer->setViewRenderer($serviceLocator->get('ViewRenderer'));
-        $html2pdfStrategy = new Html2PdfStrategy($html2pdfRenderer);
-
-        return $html2pdfStrategy;
+        return $this($serviceLocator, $rName);
     }
 
     /**
@@ -55,8 +53,19 @@ class ViewHtml2PdfStrategyFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
+        $config = $container->get('Config');
+
+        /**
+         * @var Html2PdfFactory $html2pdfFactory
+         */
+        $html2pdfFactory = $container->get(Html2PdfFactory::class);
+        $html2pdfOptions = isset($config['zff-html2pdf']['options']) ? $config['zff-html2pdf']['options'] : [];
+        $html2pdf        = $html2pdfFactory($container, Html2Pdf::class, $html2pdfOptions);
+
         $html2pdfRenderer = new Html2PdfRenderer();
         $html2pdfRenderer->setViewRenderer($container->get('ViewRenderer'));
+        $html2pdfRenderer->setHtml2Pdf($html2pdf);
+
         $html2pdfStrategy = new Html2PdfStrategy($html2pdfRenderer);
 
         return $html2pdfStrategy;

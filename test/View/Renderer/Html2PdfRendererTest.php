@@ -31,6 +31,7 @@ class Html2PdfRendererTest extends TestCase
     {
         $this->phpRenderer = new PhpRenderer;
         $this->renderer    = new Html2PdfRenderer();
+        $this->renderer->setHtml2pdf(new \HTML2PDF());
 
         $this->renderer->setViewRenderer($this->phpRenderer);
     }

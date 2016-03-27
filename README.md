@@ -13,7 +13,8 @@ Zff Html2Pdf for Zend Framework 2
 
 `Zff\Html2Pdf` module integrates [HTML2PDF](https://github.com/spipu/html2pdf) with Zend Framework 2 easily.
 
-## Installation
+Installation
+------------
 
 Installation of this module uses composer. For composer documentation, please refer to
 [getcomposer.org](http://getcomposer.org/).
@@ -26,18 +27,21 @@ Then add `Zff\\Html2Pdf` to your `config/application.config.php`.
 
 Installation without composer is not officially supported and requires you to manually install all dependencies that are listed in composer.json
 
-## Contribuing
+Contribuing
+-----------
 
-If you want to help check the contribuing instructions [here](CONTRIBUTING.md).
+You can help opening new issues (or solving) and creating Pull Requests (PR).
 
-## TODO
+Check [detailed instructions](CONTRIBUTING.md) for contributions.
+
+## TODO List
 
 - [ ] Rewrite html2pdf examples using `Zff\Html2Pdf`
-- [ ] Create a way to easily change params from HTML2PDF's constructor, called on `Html2PdfRenderer` class, on controller, view  or config file.
+- [x] Create a way to easily change params from HTML2PDF's constructor, called on `Html2PdfRenderer` class, on controller, view  or config file.
 
 ## Usage
 
-Controller Example: `AnyController.php`
+#### Controller Example: `AnyController.php`
 
 ```php
 <?php
@@ -70,6 +74,27 @@ View Example: `some.phtml`
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.
     </p>
 </div>
+```
+
+#### Changing params to HTML2PDF constructor
+
+You can change the default values by adding this configuration to your `./config/autoload/global.php`.
+
+```php
+<?php
+return [
+    'zff-html2pdf' => [
+        //HTML2PDF factory options
+        'options' => [
+            'orientation' => 'P',
+            'format'      => 'A4',
+            'lang'        => 'en',
+            'unicode'     => true,
+            'encoding'    => 'UTF-8',
+            'margins'      => [0, 0, 0, 0],
+        ],
+    ],
+];
 ```
 
 ## Documentation

@@ -18,7 +18,7 @@ class Html2PdfModel extends ViewModel
     /**
      * @var string
      */
-    protected $filename = 'file.pdf';
+    protected $filename = 'document.pdf';
 
     /**
      * @var string
