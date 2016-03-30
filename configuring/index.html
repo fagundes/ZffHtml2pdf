@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="shortcut icon" href="../img/favicon.ico">
 
-    <title>Quick Start - Zff\Html2pdf</title>
+    <title>Configuring the html2pdf constructor - Zff\Html2pdf</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -74,19 +74,19 @@
                 
                 
                 
-                    <li class="active">
-                        <a href="./">Quick Start</a>
+                    <li >
+                        <a href="../quick-start/">Quick Start</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../configuring/">Configuring the html2pdf constructor</a>
+<li class="active">
+    <a href="./">Configuring the html2pdf constructor</a>
 </li>
 
                         
@@ -117,12 +117,12 @@
                 </li>
                 
                     <li >
-                        <a rel="prev" href="..">
+                        <a rel="prev" href="../quick-start/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../configuring/">
+                        <a rel="next" href="../examples/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -148,11 +148,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#quick-start">Quick Start</a></li>
-        
-            <li><a href="#1-install-zffhtml2pdf">1. Install Zff\Html2pdf</a></li>
-        
-            <li><a href="#2-usage">2. Usage</a></li>
+        <li class="main active"><a href="#configuring-html2pdf-constructor">Configuring html2pdf constructor</a></li>
         
     
     </ul>
@@ -163,76 +159,52 @@
   <li><a href="..">Docs</a> &raquo;</li>
   
     
+      
+        <li>Reference &raquo;</li>
+      
+    
   
-  <li class="active">Quick Start</li>
+  <li class="active">Configuring the html2pdf constructor</li>
 </ol>
 
 <nav class="hidden-lg">
   <ul class="pager">
     <li class="previous">
-      <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+      <a rel="prev" href="../quick-start/"><i class="fa fa-arrow-left"></i> Previous</a>
     </li>
     <li class="next">
-      <a rel="next" href="../configuring/">Next <i class="fa fa-arrow-right"></i></a>
+      <a rel="next" href="../examples/">Next <i class="fa fa-arrow-right"></i></a>
     </li>
   </ul>
 </nav>
 
-<h1 id="quick-start">Quick Start</h1>
-<p>The Zff Html2pdf is a simple wrapper to easily integrates the <a href="https://github.com/spipu/html2pdf">spipu/html2pdf</a> library to Zend Framework.
-It creates a Html2PdfStrategy to get a ordinary <code>.phtml</code> template and returns it as a <code>.pdf</code> file.</p>
-<h2 id="1-install-zffhtml2pdf">1. Install Zff\Html2pdf</h2>
-<p>Installation of this module uses composer. For composer documentation, please refer to
-<a href="http://getcomposer.org/">getcomposer.org</a>.</p>
-<pre class="codehilite"><code class="language-bash">php composer.phar require fagundes/zff-html2pdf:0.*</code></pre>
-
-
-<p>Then add <code>Zff\\Html2Pdf</code> to your <code>config/application.config.php</code>.</p>
-<p>Installation without composer is not officially supported and requires you to manually install all dependencies that are listed in composer.json</p>
-<h2 id="2-usage">2. Usage</h2>
-<h3 id="21-ready-to-go">2.1. Ready to Go</h3>
-<p>This module comes ready to go. You need to return a <code>Html2PdfModel</code> in your controller action, instead of a <code>ViewModel</code> or an <code>array</code>.
-And create your view template <code>.phtml</code> for that action. And that's it, your view will be rendered as a <code>.pdf</code> file!</p>
-<h3 id="22-simple-example">2.2. Simple Example</h3>
-<p>Controller: <code>AnyController.php</code></p>
+<h1 id="configuring-html2pdf-constructor">Configuring html2pdf constructor</h1>
+<p>Optionally, you can change the default values for html2pdf
+constructor by adding this configuration to your <code>./config/autoload/global.php</code>.</p>
 <pre class="codehilite"><code class="language-php">&lt;?php
-
-use Zff\Html2Pdf\View\Model\Html2PdfModel;
-`Html2PdfModel
-class AnyController
-{
-
-    public function someAction()
-    {
-        //some logic here
-
-        return new Html2PdfModel([
-            'foo' =&gt; $foo,
-            'bar' =&gt; $bar
-        ]);
-    }
-
-}</code></pre>
-
-
-<p>View: <code>some.phtml</code></p>
-<pre class="codehilite"><code class="language-php">&lt;!-- Regular HTML --&gt;
-&lt;div class=&quot;container&quot;&gt;
-    &lt;h2&gt;The header&lt;/h2&gt;
-    &lt;p&gt;
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.
-    &lt;/p&gt;
-&lt;/div&gt;</code></pre>
+return [
+    'zff-html2pdf' =&gt; [
+        //HTML2PDF factory options
+        'options' =&gt; [
+            'orientation' =&gt; 'P',
+            'format'      =&gt; 'A4',
+            'lang'        =&gt; 'en',
+            'unicode'     =&gt; true,
+            'encoding'    =&gt; 'UTF-8',
+            'margins'      =&gt; [0, 0, 0, 0],
+        ],
+    ],
+];</code></pre>
 
 <hr />
 
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+      <a rel="prev" href="../quick-start/"><i class="fa fa-arrow-left"></i> Previous</a>
     </li>
     <li class="next">
-      <a rel="next" href="../configuring/">Next <i class="fa fa-arrow-right"></i></a>
+      <a rel="next" href="../examples/">Next <i class="fa fa-arrow-right"></i></a>
     </li>
   </ul>
 </nav></div>

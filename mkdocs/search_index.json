@@ -1,6 +1,11 @@
 {
     "docs": [
         {
+            "location": "/", 
+            "text": "", 
+            "title": "Home"
+        }, 
+        {
             "location": "/quick-start/", 
             "text": "Quick Start\n\n\nThe Zff Html2pdf is a simple wrapper to easily integrates the \nspipu/html2pdf\n library to Zend Framework.\nIt creates a Html2PdfStrategy to get a ordinary \n.phtml\n template and returns it as a \n.pdf\n file.\n\n\n1. Install Zff\\Html2pdf\n\n\nInstallation of this module uses composer. For composer documentation, please refer to\n\ngetcomposer.org\n.\n\n\nphp composer.phar require fagundes/zff-html2pdf:0.*\n\n\n\n\nThen add \nZff\\\\Html2Pdf\n to your \nconfig/application.config.php\n.\n\n\nInstallation without composer is not officially supported and requires you to manually install all dependencies that are listed in composer.json\n\n\n2. Usage\n\n\n2.1. Ready to Go\n\n\nThis module comes ready to go. You need to return a \nHtml2PdfModel\n in your controller action, instead of a \nViewModel\n or an \narray\n.\nAnd create your view template \n.phtml\n for that action. And that's it, your view will be rendered as a \n.pdf\n file!\n\n\n2.2. Simple Example\n\n\nController: \nAnyController.php\n\n\n?php\n\nuse Zff\\Html2Pdf\\View\\Model\\Html2PdfModel;\n`Html2PdfModel\nclass AnyController\n{\n\n    public function someAction()\n    {\n        //some logic here\n\n        return new Html2PdfModel([\n            'foo' =\n $foo,\n            'bar' =\n $bar\n        ]);\n    }\n\n}\n\n\n\n\nView: \nsome.phtml\n\n\n!-- Regular HTML --\n\n\ndiv class=\ncontainer\n\n    \nh2\nThe header\n/h2\n\n    \np\n\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.\n    \n/p\n\n\n/div", 
             "title": "Quick Start"
@@ -29,6 +34,61 @@
             "location": "/quick-start/#22-simple-example", 
             "text": "Controller:  AnyController.php  ?php\n\nuse Zff\\Html2Pdf\\View\\Model\\Html2PdfModel;\n`Html2PdfModel\nclass AnyController\n{\n\n    public function someAction()\n    {\n        //some logic here\n\n        return new Html2PdfModel([\n            'foo' =  $foo,\n            'bar' =  $bar\n        ]);\n    }\n\n}  View:  some.phtml  !-- Regular HTML --  div class= container \n     h2 The header /h2 \n     p \n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.\n     /p  /div", 
             "title": "2.2. Simple Example"
+        }, 
+        {
+            "location": "/configuring/", 
+            "text": "Configuring html2pdf constructor\n\n\nOptionally, you can change the default values for html2pdf\nconstructor by adding this configuration to your \n./config/autoload/global.php\n.\n\n\n?php\nreturn [\n    'zff-html2pdf' =\n [\n        //HTML2PDF factory options\n        'options' =\n [\n            'orientation' =\n 'P',\n            'format'      =\n 'A4',\n            'lang'        =\n 'en',\n            'unicode'     =\n true,\n            'encoding'    =\n 'UTF-8',\n            'margins'      =\n [0, 0, 0, 0],\n        ],\n    ],\n];", 
+            "title": "Configuring the html2pdf constructor"
+        }, 
+        {
+            "location": "/configuring/#configuring-html2pdf-constructor", 
+            "text": "Optionally, you can change the default values for html2pdf\nconstructor by adding this configuration to your  ./config/autoload/global.php .  ?php\nreturn [\n    'zff-html2pdf' =  [\n        //HTML2PDF factory options\n        'options' =  [\n            'orientation' =  'P',\n            'format'      =  'A4',\n            'lang'        =  'en',\n            'unicode'     =  true,\n            'encoding'    =  'UTF-8',\n            'margins'      =  [0, 0, 0, 0],\n        ],\n    ],\n];", 
+            "title": "Configuring html2pdf constructor"
+        }, 
+        {
+            "location": "/examples/", 
+            "text": "Examples\n\n\nComing Soon\n\n\nWe gonna create here a full list of example written for ZF2.\n\n\nFor now, check for examples and HTML / CSS support at \nhtml2pdf.fr\n and \ngithub.com/spipu/html2pdf\n.", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/examples/#examples", 
+            "text": "", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/examples/#coming-soon", 
+            "text": "We gonna create here a full list of example written for ZF2.  For now, check for examples and HTML / CSS support at  html2pdf.fr  and  github.com/spipu/html2pdf .", 
+            "title": "Coming Soon"
+        }, 
+        {
+            "location": "/contribuing/", 
+            "text": "Contribuing\n\n\nIf you want to help this project, you should read this instruction to know better how to do that.\n\n\nThere are a lot to do here: documentation, unit tests, new features, suggestions, report issues and solve issues. \nBtw, you can check our \nissues\n list.\n\n\n1. Composer\n\n\nThe \ncomposer\n is a manager dependency tool for PHP projects. With it is possible to install\nall libs a software need and with a single command.\n\n\n2. Code style\n\n\nAny code change MUST follow \nPSR-2\n.\n\n\nThe \nPHP_CodeSniffer\n is used to help us detect and fix violations of a defined set of coding standards.\n\n\nCodeSniffer can be installed using composer, and it's a dev dependency to this project.\n\n\n3. git-flow\n\n\ngit-flow\n is a very useful tool to help improve your development using branchs.\n\n\nThe original post which inspired this git extension can be readed \nhere\n.\n\n\n4. Good to go!\n\n\nAre you ready to make some code? Great! Follow these steps:\n\n\n\n\nDo a \nfork\n and do a local clone of your fork;\n\n\nResolve dependencies using composer \ncomposer install\n;\n\n\nInitialize the git-flow (\ngit flow init -d\n);\n\n\nCreate your branch\n\n\nIf you want to create a new feature you should execute the commmand \n  \ngit flow feature start $feature\n, where $feature\n  is an name id for your new feature;\n\n\nIf you want to fix a bug you should initialize a hotfix branch\n  \ngit flow hotfix start $hotfix\n, where $hotfix must be the current version,\n    incrementing the last number (PATH).\n\n\n\n\n\n\n\n\nIf you want to know more versioning, read more \nhere\n.", 
+            "title": "Contribuing"
+        }, 
+        {
+            "location": "/contribuing/#contribuing", 
+            "text": "If you want to help this project, you should read this instruction to know better how to do that.  There are a lot to do here: documentation, unit tests, new features, suggestions, report issues and solve issues. \nBtw, you can check our  issues  list.", 
+            "title": "Contribuing"
+        }, 
+        {
+            "location": "/contribuing/#1-composer", 
+            "text": "The  composer  is a manager dependency tool for PHP projects. With it is possible to install\nall libs a software need and with a single command.", 
+            "title": "1. Composer"
+        }, 
+        {
+            "location": "/contribuing/#2-code-style", 
+            "text": "Any code change MUST follow  PSR-2 .  The  PHP_CodeSniffer  is used to help us detect and fix violations of a defined set of coding standards.  CodeSniffer can be installed using composer, and it's a dev dependency to this project.", 
+            "title": "2. Code style"
+        }, 
+        {
+            "location": "/contribuing/#3-git-flow", 
+            "text": "git-flow  is a very useful tool to help improve your development using branchs.  The original post which inspired this git extension can be readed  here .", 
+            "title": "3. git-flow"
+        }, 
+        {
+            "location": "/contribuing/#4-good-to-go", 
+            "text": "Are you ready to make some code? Great! Follow these steps:   Do a  fork  and do a local clone of your fork;  Resolve dependencies using composer  composer install ;  Initialize the git-flow ( git flow init -d );  Create your branch  If you want to create a new feature you should execute the commmand \n   git flow feature start $feature , where $feature\n  is an name id for your new feature;  If you want to fix a bug you should initialize a hotfix branch\n   git flow hotfix start $hotfix , where $hotfix must be the current version,\n    incrementing the last number (PATH).     If you want to know more versioning, read more  here .", 
+            "title": "4. Good to go!"
         }
     ]
 }
