@@ -6,12 +6,21 @@ php:
   - 7
   - hhvm
 
+env:
+  global:
+    - SITE_URL: https://fagundes.github.io/ZffHtml2pdf
+    - GH_USER_NAME: "Vinícius Fagundes"
+    - GH_USER_EMAIL: mvlacerda@gmail.com
+    - GH_REF: github.com/fagundes/ZffHtml2pdf.git
+    - secure: "rKwNZHEhMyYSLng7YPTuexNqCFGtBl2ju5jeZJjm506Qe/jLSghwrwYlxuYWhhBmCPHtslpbNCDPpd7QIfkhQN2ixqXxPHvHy2XpXaeRgnE92FMS3oBsL2UKeoPwzNuFAFFydM2/UT60/PI4MnYu7zvwuhqShZpyeo3moWKozCVtW7K783W2r3ZgjAVD4wV7+Q2eQAANgIFy+BrNxPdGhNG7wAML6b86HXq05kU3jH1I0qjfj7t2GtqBfBhQ2f+2MpBvz0Wn+JRGO7znjX5gohcjIE9Pf5s9PPgT868g3Vd21MCw9Td1zoLgPymYVFsg2XiD547UW1NC63L/hDxMcqoPj1QtV9/h9gj6Tt/2o7jmn0uzJBK4nDozDp1kNSRE2vNM8EiKPQWi9Ritop0aw0vQlZxZtfVcYkNuvaoCBu5D5Xpf4/3GsAG0X/S2lYcrMo8c0PZgq6ZNJbKQQa3sjNHbDfgebD4NJY+0ITPWTa9Yz7uNVwiS4Qkm0SDVrk9dGTnSp2GLBu12p3y8whAi87ofv5WSwBgfgOEuFyZkQY7t9zgVy8N8jGcnGMq0W1HZPq2ZYhB8LgbBFzzLEQJSUOBot1BcQ9ZfkVlwdUvoOSZWFBFdtxy9v9GiUBYymOaUegqu16R86dRfYuL5MW81bguIXtIiT3U+rPcYXvLfkM0="
+
 matrix:
   include:
-    - php: 5.5
     - php: 5.6
       env:
         - EXECUTE_TEST_COVERALLS=true
+        - DEPLOY_DOCS="$(if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then echo -n 'true' ; else echo -n 'false' ; fi)"
+        - PATH="$HOME/.local/bin:$PATH"
   allow_failures:
     - php: 7
     - php: hhvm
@@ -26,6 +35,10 @@ install:
 script:
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then ./vendor/bin/phpunit --coverage-clover clover.xml ; fi
   - if [[ $EXECUTE_TEST_COVERALLS != 'true' ]]; then ./vendor/bin/phpunit ; fi
-  
+  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then wget -O theme-installer.sh "https://raw.githubusercontent.com/zendframework/zf-mkdoc-theme/master/theme-installer.sh" ; chmod 755 theme-installer.sh ; ./theme-installer.sh ; fi
+
+after_success:
+  - if [[ $DEPLOY_DOCS == "true" ]]; then echo "Preparing to build and deploy documentation" ; ./zf-mkdoc-theme/deploy.sh ; echo "Completed deploying documentation" ; fi
+
 after_script:
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then ./vendor/bin/coveralls ; fi

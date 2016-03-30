@@ -26,6 +26,11 @@ class Html2PdfModel extends ViewModel
     protected $dest = 'I';
 
     /**
+     * @var array
+     */
+    protected $html2PdfOptions = [];
+
+    /**
      * Filename of the document.
      *
      * @return string
@@ -76,4 +81,43 @@ class Html2PdfModel extends ViewModel
     {
         $this->dest = $dest;
     }
+
+    /**
+     * @return array
+     */
+    public function getHtml2PdfOptions()
+    {
+        return $this->html2PdfOptions;
+    }
+
+    /**
+     * It can include all of the following values:
+     *  <ul>
+     *      <li>
+     *          <strong>'orientation'</strong>: page orientation, same as TCPDF
+     *      </li>
+     *      <li>
+     *          <strong>'format'</strong>: The format used for pages, same as TCPDF
+     *      </li>
+     *      <li>
+     *          <strong>'lang'</strong>: Lang : fr, en, it...
+     *      </li>
+     *      <li>
+     *          <strong>'unicode'</strong>:  TRUE means that the input text is unicode (default = true)
+     *      </li>
+     *      <li>
+     *          <strong>'encoding'</strong>: charset encoding; default is UTF-8
+     *      </li>
+     *      <li>
+     *          <strong>'margins'</strong>: Default margins (left, top, right, bottom)
+     *      </li>
+     *  </ul>
+     *
+     * @param array $html2PdfOptions
+     */
+    public function setHtml2PdfOptions(array $html2PdfOptions)
+    {
+        $this->html2PdfOptions = $html2PdfOptions;
+    }
+
 }
