@@ -2,8 +2,23 @@
     "docs": [
         {
             "location": "/", 
-            "text": "", 
+            "text": "Zff\\Html2Pdf\n\n\nZff\\Html2Pdf\n module integrates \nspipu/html2pdf\n with Zend Framework.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFile issues at https://github.com/fagundes/ZffHtml2pdf/issues\n\n\nOnline documentation\n\n\nDocumentation source files\n\n\n\n\nTODO List\n\n\n\n\n[ ] Rewrite html2pdf examples using \nZff\\Html2Pdf\n (IN PROGRESS)\n\n\n[x] Create a way to easily change params from HTML2PDF's constructor, called on \nHtml2PdfRenderer\n class, on controller, view  or config file.\n\n\n\n\nContribuing\n\n\nYou can help opening new issues (or solving) and creating Pull Requests (PR).\n\n\nCheck \ndetailed instructions\n for contributions.", 
             "title": "Home"
+        }, 
+        {
+            "location": "/#zffhtml2pdf", 
+            "text": "Zff\\Html2Pdf  module integrates  spipu/html2pdf  with Zend Framework.         File issues at https://github.com/fagundes/ZffHtml2pdf/issues  Online documentation  Documentation source files", 
+            "title": "Zff\\Html2Pdf"
+        }, 
+        {
+            "location": "/#todo-list", 
+            "text": "[ ] Rewrite html2pdf examples using  Zff\\Html2Pdf  (IN PROGRESS)  [x] Create a way to easily change params from HTML2PDF's constructor, called on  Html2PdfRenderer  class, on controller, view  or config file.", 
+            "title": "TODO List"
+        }, 
+        {
+            "location": "/#contribuing", 
+            "text": "You can help opening new issues (or solving) and creating Pull Requests (PR).  Check  detailed instructions  for contributions.", 
+            "title": "Contribuing"
         }, 
         {
             "location": "/quick-start/", 
