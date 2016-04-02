@@ -11,13 +11,22 @@ use HTML2PDF_exception as Html2PdfException;
 use Zend\View\Renderer\RendererInterface as Renderer;
 use Zend\View\Renderer\PhpRenderer as ViewRenderer;
 use Zend\View\Resolver\ResolverInterface as Resolver;
+use Zff\Html2Pdf\View\Model\Html2PdfModel;
 
 /**
  * Class that transforms the html of the view in pdf using HTML2PDF library and outputs it.
  */
 class Html2PdfRenderer implements Renderer
 {
+    /**
+     * @var ViewRenderer
+     */
     protected $viewRenderer;
+
+    /**
+     * @var Html2Pdf
+     */
+    protected $html2pdf;
 
     /**
      * @return ViewRenderer
@@ -30,7 +39,24 @@ class Html2PdfRenderer implements Renderer
     public function setViewRenderer(ViewRenderer $viewRenderer)
     {
         $this->viewRenderer = $viewRenderer;
+
         return $this;
+    }
+
+    /**
+     * @return Html2Pdf
+     */
+    public function getHtml2pdf()
+    {
+        return $this->html2pdf;
+    }
+
+    /**
+     * @param Html2Pdf $html2pdf
+     */
+    public function setHtml2pdf($html2pdf)
+    {
+        $this->html2pdf = $html2pdf;
     }
 
     /**
@@ -38,7 +64,6 @@ class Html2PdfRenderer implements Renderer
      *
      * @param  Resolver $resolver
      * @return Html2PdfRenderer
-     * @throws Exception\InvalidArgumentException
      */
     public function setResolver(Resolver $resolver)
     {
@@ -68,19 +93,15 @@ class Html2PdfRenderer implements Renderer
         return $this;
     }
 
-  /**
-   * @param mixed $nameOrModel
-   * @param mixed $values
-   * @return string
-   * @throws Html2PdfException
-   */
+    /**
+     * @param mixed $nameOrModel
+     * @param mixed $values
+     * @return string
+     * @throws Html2PdfException
+     */
     public function render($nameOrModel, $values = null)
     {
-        /**
-         * @todo a way to easly change this params on controller, view  and/or config file
-         */
-        //create html2pdf class with default params but no margins
-        $html2pdf = new Html2Pdf('P', 'A4', 'en', true, 'UTF-8', [0, 0, 0, 0]);
+        $html2pdf = $this->getHtml2pdf();
 
         //set the variable html2pdf on the view
         $nameOrModel->setVariable('html2pdf', $html2pdf);

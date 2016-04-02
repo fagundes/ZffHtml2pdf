@@ -1,0 +1,13 @@
+docs_dir: doc/book
+site_dir: doc/html
+pages:
+    - index.md
+    - 'Quick Start': quick-start.md
+    - Reference:
+      - 'Configuring the html2pdf constructor': configuring.md
+      - Examples: examples.md
+      - Contribuing: contribuing.md
+site_name: Zff\Html2pdf
+site_description: 'Zff\Html2pdf : Module for Zend Framework'
+repo_url: 'https://github.com/fagundes/zff-html2pdf'
+copyright: 'Copyright (c) 2016 <a href="http://www.viniciusfagundes.com/">Vinícius Fagundes</a>'

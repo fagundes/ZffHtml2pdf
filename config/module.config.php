@@ -7,15 +7,18 @@
 
 namespace Zff\Html2Pdf;
 
+use Zend\ServiceManager\Factory\InvokableFactory;
+
 return [
-    'view_manager' => [
+    'view_manager'    => [
         'strategies' => [
             'ViewHtml2PdfStrategy',
         ],
     ],
     'service_manager' => [
-        'factories' => [
-            'ViewHtml2PdfStrategy' => 'Zff\Html2Pdf\Mvc\Service\ViewHtml2PdfStrategyFactory',
+        'factories'  => [
+            Html2PdfFactory::class => InvokableFactory::class,
+            'ViewHtml2PdfStrategy' => Mvc\Service\ViewHtml2PdfStrategyFactory::class,
         ],
     ],
 ];

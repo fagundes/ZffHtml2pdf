@@ -7,15 +7,16 @@
 namespace ZffTest\Html2Pdf\Mvc\Service;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use Zff\Html2Pdf\Mvc\Service\ViewHtml2PdfStrategyFactory;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\Mvc\Application;
+use Zff\Html2Pdf\Mvc\Service\ViewHtml2PdfStrategyFactory;
+use Zff\Html2Pdf\View\Strategy\Html2PdfStrategy;
 
 class ViewHtml2PdfStrategyFactoryTest extends TestCase
 {
     /**
-     * @var ServiceManager 
+     * @var ServiceManager
      */
     protected $serviceManager;
 
@@ -36,11 +37,12 @@ class ViewHtml2PdfStrategyFactoryTest extends TestCase
     public function testCanCreateHtml2PdfStrategyFromNewFactoryInstance()
     {
         $factory = new ViewHtml2PdfStrategyFactory;
-        $this->assertInstanceOf('\Zff\Html2Pdf\View\Strategy\Html2PdfStrategy', $factory->createService($this->serviceManager));
+        $this->assertInstanceOf(Html2PdfStrategy::class, $factory->createService($this->serviceManager));
     }
 
     public function testCanCreateHtml2PdfStrategyFromServiceManager()
     {
-        $this->assertInstanceOf('\Zff\Html2Pdf\View\Strategy\Html2PdfStrategy', $this->serviceManager->get('ViewHtml2PdfStrategy'));
+        $this->assertInstanceOf(Html2PdfStrategy::class, $this->serviceManager->get('ViewHtml2PdfStrategy'));
     }
+
 }
