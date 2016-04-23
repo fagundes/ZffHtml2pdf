@@ -119,5 +119,4 @@ class Html2PdfModel extends ViewModel
     {
         $this->html2PdfOptions = $html2PdfOptions;
     }
-
 }

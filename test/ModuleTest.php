@@ -1,7 +1,7 @@
 <?php
 /**
- * @license http://opensource.org/licenses/MIT MIT
  * @copyright Copyright (c) 2015 Vinicius Fagundes
+ * @license http://opensource.org/licenses/MIT MIT
  */
 
 namespace ZffTest\Html2Pdf;
@@ -34,7 +34,8 @@ class ModuleTest extends TestCase
         $this->assertEquals($configArr, $this->module->getConfig());
     }
 
-    public function testAutoloader() {
+    public function testAutoloader()
+    {
         $this->assertNotEmpty($this->module->getAutoloaderConfig());
     }
 }

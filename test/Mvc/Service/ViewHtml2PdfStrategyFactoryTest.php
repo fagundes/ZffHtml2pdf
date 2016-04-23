@@ -44,5 +44,4 @@ class ViewHtml2PdfStrategyFactoryTest extends TestCase
     {
         $this->assertInstanceOf(Html2PdfStrategy::class, $this->serviceManager->get('ViewHtml2PdfStrategy'));
     }
-
 }

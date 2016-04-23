@@ -23,7 +23,7 @@ class Html2PdfModelTest extends TestCase
     protected function setUp()
     {
         $this->model = new Html2PdfModel([
-            'foo' => 'bar'
+            'foo' => 'bar',
         ]);
 
         $this->model->setFilename('myNewDoc.pdf');

@@ -43,8 +43,8 @@ class ViewHtml2PdfStrategyFactory implements FactoryInterface
      * Create an object
      *
      * @param  ContainerInterface $container
-     * @param  string $requestedName
-     * @param  null|array $options
+     * @param  string             $requestedName
+     * @param  null|array         $options
      * @return Html2PdfStrategy
      * @throws ServiceNotFoundException if unable to resolve the service.
      * @throws ServiceNotCreatedException if an exception is raised when
@@ -55,16 +55,11 @@ class ViewHtml2PdfStrategyFactory implements FactoryInterface
     {
         $config = $container->get('Config');
 
-        /**
-         * @var Html2PdfFactory $html2pdfFactory
-         */
-        $html2pdfFactory = $container->get(Html2PdfFactory::class);
         $html2pdfOptions = isset($config['zff-html2pdf']['options']) ? $config['zff-html2pdf']['options'] : [];
-        $html2pdf        = $html2pdfFactory($container, Html2Pdf::class, $html2pdfOptions);
 
         $html2pdfRenderer = new Html2PdfRenderer();
         $html2pdfRenderer->setViewRenderer($container->get('ViewRenderer'));
-        $html2pdfRenderer->setHtml2Pdf($html2pdf);
+        $html2pdfRenderer->setDefaultHtml2pdfOptions($html2pdfOptions);
 
         $html2pdfStrategy = new Html2PdfStrategy($html2pdfRenderer);
 
