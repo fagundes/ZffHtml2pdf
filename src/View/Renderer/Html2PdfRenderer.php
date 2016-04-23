@@ -11,6 +11,7 @@ use HTML2PDF_exception as Html2PdfException;
 use Zend\View\Renderer\RendererInterface as Renderer;
 use Zend\View\Renderer\PhpRenderer as ViewRenderer;
 use Zend\View\Resolver\ResolverInterface as Resolver;
+use Zff\Html2Pdf\Html2PdfFactory;
 use Zff\Html2Pdf\View\Model\Html2PdfModel;
 
 /**
@@ -24,9 +25,9 @@ class Html2PdfRenderer implements Renderer
     protected $viewRenderer;
 
     /**
-     * @var Html2Pdf
+     * @var array
      */
-    protected $html2pdf;
+    protected $defaultHtml2pdfOptions;
 
     /**
      * @return ViewRenderer
@@ -44,19 +45,19 @@ class Html2PdfRenderer implements Renderer
     }
 
     /**
-     * @return Html2Pdf
+     * @return array
      */
-    public function getHtml2pdf()
+    public function getDefaultHtml2pdfOptions()
     {
-        return $this->html2pdf;
+        return $this->defaultHtml2pdfOptions;
     }
 
     /**
-     * @param Html2Pdf $html2pdf
+     * @param array $defaultHtml2pdfOptions
      */
-    public function setHtml2pdf($html2pdf)
+    public function setDefaultHtml2pdfOptions($defaultHtml2pdfOptions)
     {
-        $this->html2pdf = $html2pdf;
+        $this->defaultHtml2pdfOptions = $defaultHtml2pdfOptions;
     }
 
     /**
@@ -101,7 +102,7 @@ class Html2PdfRenderer implements Renderer
      */
     public function render($nameOrModel, $values = null)
     {
-        $html2pdf = $this->getHtml2pdf();
+        $html2pdf = $this->createHtml2pdf($nameOrModel);
 
         //set the variable html2pdf on the view
         $nameOrModel->setVariable('html2pdf', $html2pdf);
@@ -114,5 +115,18 @@ class Html2PdfRenderer implements Renderer
 
         // send the PDF
         return $html2pdf->Output($nameOrModel->getFilename(), $nameOrModel->getDest());
+    }
+
+    /**
+     * @param mixed $nameOrModel
+     * @return Html2Pdf
+     */
+    protected function createHtml2pdf($nameOrModel)
+    {
+        $options = $nameOrModel instanceof Html2PdfModel && !empty($nameOrModel->getHtml2PdfOptions()) ?
+            $nameOrModel->getHtml2PdfOptions() :
+            $this->getDefaultHtml2pdfOptions();
+
+        return Html2PdfFactory::factory($options);
     }
 }

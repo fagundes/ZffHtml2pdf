@@ -25,7 +25,7 @@ class Html2PdfStrategy extends AbstractListenerAggregate
     /**
      * Constructor
      *
-     * @param  Html2PdfRenderer $renderer
+     * @param Html2PdfRenderer $renderer
      */
     public function __construct(Html2PdfRenderer $renderer)
     {
@@ -36,7 +36,7 @@ class Html2PdfStrategy extends AbstractListenerAggregate
      * Attach the aggregate to the specified event manager
      *
      * @param  EventManagerInterface $events
-     * @param  int $priority
+     * @param  int                   $priority
      * @return void
      */
     public function attach(EventManagerInterface $events, $priority = 1)
@@ -71,7 +71,7 @@ class Html2PdfStrategy extends AbstractListenerAggregate
      * Populates the content of the response object from the view rendering
      * results.
      *
-     * @param ViewEvent $e
+     * @param  ViewEvent $e
      * @return void
      */
     public function injectResponse(ViewEvent $e)

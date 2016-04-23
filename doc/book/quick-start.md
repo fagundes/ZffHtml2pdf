@@ -32,7 +32,7 @@ Controller: `AnyController.php`
 <?php
 
 use Zff\Html2Pdf\View\Model\Html2PdfModel;
-`Html2PdfModel
+
 class AnyController
 {
 
