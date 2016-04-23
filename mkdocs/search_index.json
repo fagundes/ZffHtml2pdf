@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Zff\\Html2Pdf\n\n\nZff\\Html2Pdf\n module integrates \nspipu/html2pdf\n with Zend Framework.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFile issues at https://github.com/fagundes/ZffHtml2pdf/issues\n\n\nOnline documentation\n\n\nDocumentation source files\n\n\n\n\nTODO List\n\n\n\n\n[ ] Rewrite html2pdf examples using \nZff\\Html2Pdf\n (IN PROGRESS)\n\n\n[x] Create a way to easily change params from HTML2PDF's constructor, called on \nHtml2PdfRenderer\n class, on controller, view  or config file.\n\n\n\n\nContribuing\n\n\nYou can help opening new issues (or solving) and creating Pull Requests (PR).\n\n\nCheck \ndetailed instructions\n for contributions.", 
+            "text": "Zff\\Html2Pdf\n\n\nZff\\Html2Pdf\n module integrates \nspipu/html2pdf\n with Zend Framework.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFile issues at https://github.com/fagundes/ZffHtml2pdf/issues\n\n\nOnline documentation\n\n\nDocumentation source files\n\n\n\n\nTODO List\n\n\n\n\n[ ] Rewrite html2pdf examples using \nZff\\Html2Pdf\n (IN PROGRESS)\n\n\n\n\nContribuing\n\n\nYou can help opening new issues (or solving) and creating Pull Requests (PR).\n\n\nCheck \ndetailed instructions\n for contributions.", 
             "title": "Home"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#todo-list", 
-            "text": "[ ] Rewrite html2pdf examples using  Zff\\Html2Pdf  (IN PROGRESS)  [x] Create a way to easily change params from HTML2PDF's constructor, called on  Html2PdfRenderer  class, on controller, view  or config file.", 
+            "text": "[ ] Rewrite html2pdf examples using  Zff\\Html2Pdf  (IN PROGRESS)", 
             "title": "TODO List"
         }, 
         {
@@ -22,7 +22,7 @@
         }, 
         {
             "location": "/quick-start/", 
-            "text": "Quick Start\n\n\nThe Zff Html2pdf is a simple wrapper to easily integrates the \nspipu/html2pdf\n library to Zend Framework.\nIt creates a Html2PdfStrategy to get a ordinary \n.phtml\n template and returns it as a \n.pdf\n file.\n\n\n1. Install Zff\\Html2pdf\n\n\nInstallation of this module uses composer. For composer documentation, please refer to\n\ngetcomposer.org\n.\n\n\nphp composer.phar require fagundes/zff-html2pdf:0.*\n\n\n\n\nThen add \nZff\\\\Html2Pdf\n to your \nconfig/application.config.php\n.\n\n\nInstallation without composer is not officially supported and requires you to manually install all dependencies that are listed in composer.json\n\n\n2. Usage\n\n\n2.1. Ready to Go\n\n\nThis module comes ready to go. You need to return a \nHtml2PdfModel\n in your controller action, instead of a \nViewModel\n or an \narray\n.\nAnd create your view template \n.phtml\n for that action. And that's it, your view will be rendered as a \n.pdf\n file!\n\n\n2.2. Simple Example\n\n\nController: \nAnyController.php\n\n\n?php\n\nuse Zff\\Html2Pdf\\View\\Model\\Html2PdfModel;\n`Html2PdfModel\nclass AnyController\n{\n\n    public function someAction()\n    {\n        //some logic here\n\n        return new Html2PdfModel([\n            'foo' =\n $foo,\n            'bar' =\n $bar\n        ]);\n    }\n\n}\n\n\n\n\nView: \nsome.phtml\n\n\n!-- Regular HTML --\n\n\ndiv class=\ncontainer\n\n    \nh2\nThe header\n/h2\n\n    \np\n\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.\n    \n/p\n\n\n/div", 
+            "text": "Quick Start\n\n\nThe Zff Html2pdf is a simple wrapper to easily integrates the \nspipu/html2pdf\n library to Zend Framework.\nIt creates a Html2PdfStrategy to get a ordinary \n.phtml\n template and returns it as a \n.pdf\n file.\n\n\n1. Install Zff\\Html2pdf\n\n\nInstallation of this module uses composer. For composer documentation, please refer to\n\ngetcomposer.org\n.\n\n\nphp composer.phar require fagundes/zff-html2pdf:0.*\n\n\n\n\nThen add \nZff\\\\Html2Pdf\n to your \nconfig/application.config.php\n.\n\n\nInstallation without composer is not officially supported and requires you to manually install all dependencies that are listed in composer.json\n\n\n2. Usage\n\n\n2.1. Ready to Go\n\n\nThis module comes ready to go. You need to return a \nHtml2PdfModel\n in your controller action, instead of a \nViewModel\n or an \narray\n.\nAnd create your view template \n.phtml\n for that action. And that's it, your view will be rendered as a \n.pdf\n file!\n\n\n2.2. Simple Example\n\n\nController: \nAnyController.php\n\n\n?php\n\nuse Zff\\Html2Pdf\\View\\Model\\Html2PdfModel;\n\nclass AnyController\n{\n\n    public function someAction()\n    {\n        //some logic here\n\n        return new Html2PdfModel([\n            'foo' =\n $foo,\n            'bar' =\n $bar\n        ]);\n    }\n\n}\n\n\n\n\nView: \nsome.phtml\n\n\n!-- Regular HTML --\n\n\ndiv class=\ncontainer\n\n    \nh2\nThe header\n/h2\n\n    \np\n\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.\n    \n/p\n\n\n/div", 
             "title": "Quick Start"
         }, 
         {
@@ -47,18 +47,28 @@
         }, 
         {
             "location": "/quick-start/#22-simple-example", 
-            "text": "Controller:  AnyController.php  ?php\n\nuse Zff\\Html2Pdf\\View\\Model\\Html2PdfModel;\n`Html2PdfModel\nclass AnyController\n{\n\n    public function someAction()\n    {\n        //some logic here\n\n        return new Html2PdfModel([\n            'foo' =  $foo,\n            'bar' =  $bar\n        ]);\n    }\n\n}  View:  some.phtml  !-- Regular HTML --  div class= container \n     h2 The header /h2 \n     p \n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.\n     /p  /div", 
+            "text": "Controller:  AnyController.php  ?php\n\nuse Zff\\Html2Pdf\\View\\Model\\Html2PdfModel;\n\nclass AnyController\n{\n\n    public function someAction()\n    {\n        //some logic here\n\n        return new Html2PdfModel([\n            'foo' =  $foo,\n            'bar' =  $bar\n        ]);\n    }\n\n}  View:  some.phtml  !-- Regular HTML --  div class= container \n     h2 The header /h2 \n     p \n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus sed lacus ultrices pharetra a vitae massa.\n     /p  /div", 
             "title": "2.2. Simple Example"
         }, 
         {
             "location": "/configuring/", 
-            "text": "Configuring html2pdf constructor\n\n\nOptionally, you can change the default values for html2pdf\nconstructor by adding this configuration to your \n./config/autoload/global.php\n.\n\n\n?php\nreturn [\n    'zff-html2pdf' =\n [\n        //HTML2PDF factory options\n        'options' =\n [\n            'orientation' =\n 'P',\n            'format'      =\n 'A4',\n            'lang'        =\n 'en',\n            'unicode'     =\n true,\n            'encoding'    =\n 'UTF-8',\n            'margins'      =\n [0, 0, 0, 0],\n        ],\n    ],\n];", 
+            "text": "Configuring html2pdf constructor\n\n\n1. Default values from config file\n\n\nOptionally, you can change the default values for html2pdf\nconstructor by adding this configuration to your \n./config/autoload/global.php\n.\n\n\nNote, you don't need set all options, only those you need to override.\n\n\n?php\nreturn [\n    'zff-html2pdf' =\n [\n        //HTML2PDF factory options\n        'options' =\n [\n            'orientation' =\n 'P',\n            'format'      =\n 'A4',\n            'lang'        =\n 'en',\n            'unicode'     =\n true,\n            'encoding'    =\n 'UTF-8',\n            'margins'      =\n [0, 0, 0, 0],\n        ],\n    ],\n];\n\n\n\n\n2. Change default values in controller\n\n\nAnother way to change the default values for html2pdf constructor in a single action is overriding\nthe options by setting them in \nHtml2PdfModel\n like below.\n\n\nNote, these options will be merged with the options defined on config file.\nIt will override the config file when necessary.\n\n\n?php\n\nuse Zff\\Html2Pdf\\View\\Model\\Html2PdfModel;\n\nMyController\n{\n\n    public function myAction()\n    {\n        $model = new Html2PdfModel();\n        $model-\nsetHtml2PdfOptions([\n            'orientation' =\n 'P',\n            'format'      =\n 'A4',\n            'lang'        =\n 'en',\n            'unicode'     =\n true,\n            'encoding'    =\n 'UTF-8',\n            'margins'      =\n [0, 0, 0, 0],\n        ]);\n\n        return $model;\n    }\n}", 
             "title": "Configuring the html2pdf constructor"
         }, 
         {
             "location": "/configuring/#configuring-html2pdf-constructor", 
-            "text": "Optionally, you can change the default values for html2pdf\nconstructor by adding this configuration to your  ./config/autoload/global.php .  ?php\nreturn [\n    'zff-html2pdf' =  [\n        //HTML2PDF factory options\n        'options' =  [\n            'orientation' =  'P',\n            'format'      =  'A4',\n            'lang'        =  'en',\n            'unicode'     =  true,\n            'encoding'    =  'UTF-8',\n            'margins'      =  [0, 0, 0, 0],\n        ],\n    ],\n];", 
+            "text": "", 
             "title": "Configuring html2pdf constructor"
+        }, 
+        {
+            "location": "/configuring/#1-default-values-from-config-file", 
+            "text": "Optionally, you can change the default values for html2pdf\nconstructor by adding this configuration to your  ./config/autoload/global.php .  Note, you don't need set all options, only those you need to override.  ?php\nreturn [\n    'zff-html2pdf' =  [\n        //HTML2PDF factory options\n        'options' =  [\n            'orientation' =  'P',\n            'format'      =  'A4',\n            'lang'        =  'en',\n            'unicode'     =  true,\n            'encoding'    =  'UTF-8',\n            'margins'      =  [0, 0, 0, 0],\n        ],\n    ],\n];", 
+            "title": "1. Default values from config file"
+        }, 
+        {
+            "location": "/configuring/#2-change-default-values-in-controller", 
+            "text": "Another way to change the default values for html2pdf constructor in a single action is overriding\nthe options by setting them in  Html2PdfModel  like below.  Note, these options will be merged with the options defined on config file.\nIt will override the config file when necessary.  ?php\n\nuse Zff\\Html2Pdf\\View\\Model\\Html2PdfModel;\n\nMyController\n{\n\n    public function myAction()\n    {\n        $model = new Html2PdfModel();\n        $model- setHtml2PdfOptions([\n            'orientation' =  'P',\n            'format'      =  'A4',\n            'lang'        =  'en',\n            'unicode'     =  true,\n            'encoding'    =  'UTF-8',\n            'margins'      =  [0, 0, 0, 0],\n        ]);\n\n        return $model;\n    }\n}", 
+            "title": "2. Change default values in controller"
         }, 
         {
             "location": "/examples/", 

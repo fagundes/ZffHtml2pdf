@@ -150,6 +150,10 @@
     
         <li class="main active"><a href="#configuring-html2pdf-constructor">Configuring html2pdf constructor</a></li>
         
+            <li><a href="#1-default-values-from-config-file">1. Default values from config file</a></li>
+        
+            <li><a href="#2-change-default-values-in-controller">2. Change default values in controller</a></li>
+        
     
     </ul>
 </div></div>
@@ -179,8 +183,10 @@
 </nav>
 
 <h1 id="configuring-html2pdf-constructor">Configuring html2pdf constructor</h1>
+<h2 id="1-default-values-from-config-file">1. Default values from config file</h2>
 <p>Optionally, you can change the default values for html2pdf
 constructor by adding this configuration to your <code>./config/autoload/global.php</code>.</p>
+<p>Note, you don't need set all options, only those you need to override.</p>
 <pre class="codehilite"><code class="language-php">&lt;?php
 return [
     'zff-html2pdf' =&gt; [
@@ -195,6 +201,35 @@ return [
         ],
     ],
 ];</code></pre>
+
+
+<h2 id="2-change-default-values-in-controller">2. Change default values in controller</h2>
+<p>Another way to change the default values for html2pdf constructor in a single action is overriding
+the options by setting them in <code>Html2PdfModel</code> like below.</p>
+<p>Note, these options will be merged with the options defined on config file.
+It will override the config file when necessary.</p>
+<pre class="codehilite"><code class="language-php">&lt;?php
+
+use Zff\Html2Pdf\View\Model\Html2PdfModel;
+
+MyController
+{
+
+    public function myAction()
+    {
+        $model = new Html2PdfModel();
+        $model-&gt;setHtml2PdfOptions([
+            'orientation' =&gt; 'P',
+            'format'      =&gt; 'A4',
+            'lang'        =&gt; 'en',
+            'unicode'     =&gt; true,
+            'encoding'    =&gt; 'UTF-8',
+            'margins'      =&gt; [0, 0, 0, 0],
+        ]);
+
+        return $model;
+    }
+}</code></pre>
 
 <hr />
 
